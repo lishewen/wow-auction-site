@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>魔兽拍卖行数据 · Auctionator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>⚔ 魔兽拍卖行数据</h1>
+    <div class="sub">数据源：Auctionator 本地缓存 · 正式服 · 每日自动更新</div>
+  </div>
+</header>
+<div class="container">
+  <div class="controls">
+    <input type="text" id="q" placeholder="搜索物品名称或物品ID…">
+    <select id="realm-sel">
+      <option value="all">全部服务器</option>
+    </select>
+    <label class="chk"><input type="checkbox" id="only-named"> 仅显示已命名</label>
+  </div>
+  <div class="stats" id="count">加载中…</div>
+  <table>
+    <thead>
+      <tr>
+        <th data-sort="name">物品<span class="arrow"></span></th>
+        <th data-sort="minPrice">最低价<span class="arrow"></span></th>
+        <th data-sort="chg">涨跌<span class="arrow"></span></th>
+        <th class="hide-sm" id="realm-cols-th">价格明细</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <div class="spinner" id="loading" style="display:none">加载中</div>
+  <button class="loadmore" id="loadmore" style="display:none">加载更多</button>
+</div>
+
+<div class="modal-bg" id="modal-bg">
+  <div class="modal">
+    <button class="close">✕</button>
+    <h2 id="modal-title"></h2>
+    <div class="meta" id="modal-meta"></div>
+    <div class="realm-tabs" id="realm-tabs"></div>
+    <div class="stats" id="detail-now"></div>
+    <div class="chart-box"><div id="chart"></div>
+      <div class="legend">
+        <span><i style="background:#f5d76e"></i>当日最高低价</span>
+        <span><i style="background:#6aa9e0"></i>当日最低低价</span>
+      </div>
+    </div>
+    <div class="hgrid" id="hist-cards"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
